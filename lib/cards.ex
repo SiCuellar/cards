@@ -4,8 +4,8 @@ defmodule Cards do
     suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
 
     #list comprehension
-    for suit <- suits do
-      suit
+    for suit <- suits, value <- values do
+      "#{value} of #{suit}"
     end
   end
 
