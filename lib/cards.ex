@@ -1,6 +1,12 @@
 defmodule Cards do
   def create_deck do
-    ["Ace", "Two", "Three"]
+    values = ["Ace", "Two", "Three", "Four", "Five"]
+    suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
+
+    #list comprehension
+    for suit <- suits do
+      suit
+    end
   end
 
   # Arity - the number of arguments a function accepts (shuffle/1)
