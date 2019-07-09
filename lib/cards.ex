@@ -17,8 +17,15 @@ defmodule Cards do
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
+
+  def deal(deck, hand_size) do
+    Enum.split(deck, hand_size)
+  end
 end
 
 # iex -S mix  gives us elixir interactive shell
 # convention to use double quotes
 # we never modify data structures, new ones are created(immutability)
+
+#tuple {} or hash for ruby
+#Tumple act like --> Cards.deal(deck, 5) #{ hand: [], deck: [] }
