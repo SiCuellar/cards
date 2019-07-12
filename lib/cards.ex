@@ -25,6 +25,10 @@ defmodule Cards do
     Enum.member?(deck, card)
   end
 
+  @doc """
+    divides a deck into hand and the remainder of the deck.
+    The `hand_size` argument indicates how many cards should
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
