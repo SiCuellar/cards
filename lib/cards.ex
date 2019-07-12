@@ -1,4 +1,11 @@
 defmodule Cards do
+  @moduledoc """
+    Provides methods for createing and handeling a deck of cards
+  """
+  @doc """
+    Returns a list of strings representing playing cards
+  """
+
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
     suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
@@ -18,8 +25,30 @@ defmodule Cards do
     Enum.member?(deck, card)
   end
 
+  @doc """
+    divides a deck into hand and the remainder of the deck.
+    The `hand_size` argument indicates how many cards should
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
+  end
+
+  def save(deck, filename) do
+    binary = :erlang.term_to_binary(deck) #encodes file (built in erlang method)
+    File.write(filename, binary)
+  end
+
+  def load(filename) do
+    case File.read(filename) do
+      {:ok, binary} -> :erlang.binary_to_term
+      {:error, reason} -> "That file does not exists"
+    end
+  end
+
+  def create_hand(hand_size) do
+    Cards.create_deck
+    |> Cards.shuffle
+    |> Cards.deal(hand_size)
   end
 end
 
