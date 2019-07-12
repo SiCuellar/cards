@@ -21,6 +21,20 @@ defmodule Cards do
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
+
+  def save(deck, filename) do
+    binary = :erlang.term_to_binary(deck) #encodes file (built in erlang method)
+    File.write(filename, binary)
+  end
+
+  def load(filename) do
+    {status, binary} = File.read(filename)
+
+    case status do
+      :ok -> :erlang.binary_to_term
+      :error -> "That file does not exists"
+    end
+  end
 end
 
 # iex -S mix  gives us elixir interactive shell
