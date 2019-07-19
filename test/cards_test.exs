@@ -3,11 +3,11 @@ defmodule CardsTest do
   doctest Cards
 
   #Types od testing bellow
-  # assertion testing (common)
+  # (case)assertion testing (common)
   # doctesting -- runs code within example block of code (This is KICK ASS)
 
-  
-
-
-
+  test "create_deck makes 20 cards" do
+    deck_length = length(Cards.create_deck)
+    assert deck_length == 20
+  end
 end
