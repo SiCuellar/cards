@@ -2,7 +2,12 @@ defmodule CardsTest do
   use ExUnit.Case
   doctest Cards
 
-  test "greets the world" do
-    assert Cards.hello() == :world
+  #Types od testing bellow
+  # (case)assertion testing (common)
+  # doctesting -- runs code within example block of code (This is KICK ASS)
+
+  test "create_deck makes 20 cards" do
+    deck_length = length(Cards.create_deck)
+    assert deck_length == 20
   end
 end
